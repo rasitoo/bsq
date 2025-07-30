@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsanz-ro <dsanz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rtapiado <rtapiado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:56:31 by dsanz-ro          #+#    #+#             */
-/*   Updated: 2025/07/30 16:17:19 by dsanz-ro         ###   ########.fr       */
+/*   Updated: 2025/07/30 16:58:37 by rtapiado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,22 @@ typedef struct s_sq
 	int	size;
 }	t_sq;
 
-typedef struct s_mapinfo
-{
+typedef struct {
 	char	**map;
 	int		rows;
 	int		cols;
 	char	empty;
 	char	obstacle;
+	char	full;
 }	t_mapinfo;
 
-t_sq	find_biggest_sq(t_mapinfo info);
-int		**allocate_dp(int rows, int cols);
-void	free_dp(int **dp, int rows);
-int		compute_cell_value(int **dp, t_mapinfo info, int i, int j);
-void	update_best_sq(t_sq *best, int size, int i, int j);
-int		min(int a, int b, int c);
+t_sq		ft_find_biggest_sq(t_mapinfo info);
+int			**ft_allocate_dp(int rows, int cols);
+void		ft_free_dp(int **dp, int rows);
+int			ft_compute_cell_value(int **dp, t_mapinfo info, int i, int j);
+void		ft_update_best_sq(t_sq *best, int size, int i, int j);
+int			ft_min(int a, int b, int c);
+int			ft_parse_map(int fd, t_mapinfo *map);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rtapiado <rtapiado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:15:33 by rtapiado          #+#    #+#             */
-/*   Updated: 2025/07/30 12:16:01 by rtapiado         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:12:21 by rtapiado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,12 @@ int	ft_extract_number(char *line)
 	return (ft_atoi(line));
 }
 
-char	*ft_extract_first_line(char *argv)
+char	*ft_extract_first_line(int	fd)
 {
 	char	*line;
 	int		fd;
 	int		i;
 
-	fd = open(argv, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
 	line = (char *)malloc(1024);
