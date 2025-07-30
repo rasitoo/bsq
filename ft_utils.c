@@ -6,12 +6,11 @@
 /*   By: rtapiado <rtapiado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:06:09 by rtapiado          #+#    #+#             */
-/*   Updated: 2025/07/29 20:07:36 by rtapiado         ###   ########.fr       */
+/*   Updated: 2025/07/30 12:43:25 by rtapiado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
-
 
 int	ft_strlen(char *str)
 {
@@ -21,6 +20,19 @@ int	ft_strlen(char *str)
 	while (str[n] != '\0')
 		n++;
 	return (n);
+}
+
+char	*ft_create_buffer(size_t str_lgth)
+{
+	char	*line;
+
+	line = (char *)malloc(str_lgth);
+	if (!line)
+	{
+		line = NULL;
+		return (line);
+	}
+	return (line);
 }
 
 int	ft_atoi(char *str)

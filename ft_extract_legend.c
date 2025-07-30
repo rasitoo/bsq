@@ -6,7 +6,7 @@
 /*   By: rtapiado <rtapiado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:15:33 by rtapiado          #+#    #+#             */
-/*   Updated: 2025/07/29 20:16:57 by rtapiado         ###   ########.fr       */
+/*   Updated: 2025/07/30 12:16:01 by rtapiado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@ int	ft_extract_signs(char *line, char *signs)
 	signs[1] = line[i - 3];
 	signs[2] = line[i - 2];
 	return (0);
+}
+
+int	ft_extract_number(char *line)
+{
+	int		i;
+
+	i = ft_strlen(line);
+	line[i - 4] = '\0';
+	line[i - 3] = '\0';
+	line[i - 2] = '\0';
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if (!(line[i] >= '0' && line[i] <= '9'))
+			return (-1);
+		i++;
+	}
+	return (ft_atoi(line));
 }
 
 char	*ft_extract_first_line(char *argv)
