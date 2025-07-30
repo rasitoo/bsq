@@ -1,16 +1,19 @@
+NAME=bsq
 CC=cc
-CFLAGS=-c -Wall -Werror -Wextra
-SOURCE=hello.c
-OBJ=$(SOURCE:.c=.o)
+CFLAGS=-Wall -Werror -Wextra
+SRCS=main.c ft_check_map ft_extract_legend ft_utils
+OBJS=$(SRCS:.c=.o)
 EXE=hello
 
-all: $(SOURCE) $(EXE)
+all: $(NAME)
 
-$(EXE): $(OBJ)
-        $(CC) $(OBJ) -o $@
-
-%.o: %.c
-        $(CC) $(CFLAGS) $< -o $@
+$(NAME): $(OBJS)
+        $(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-        rm -rf $(OBJ) $(EXE)
+	rm -f $(OBJS)
+
+fclean:
+	rm -f $(NAME)
+
+re: fclean all
